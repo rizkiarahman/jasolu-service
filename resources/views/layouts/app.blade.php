@@ -10,7 +10,26 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Jasolu Service
+            </a>
+            <div>
+                <a class="nav-link text-white d-inline"
+                    href="{{ route('spareparts.index') }}">
+                    Sparepart
+                </a>
+                <a class="nav-link text-white d-inline"
+                    href="{{ route('customers.index') }}">
+                    Customer
+                </a>
 
+            </div>
+
+        </div>
+
+    </nav>
     <div class="container mt-5">
         <table class="table table-striped table-hover align-middle">
             {{-- Flash Message --}}

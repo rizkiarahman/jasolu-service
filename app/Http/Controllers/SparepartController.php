@@ -74,21 +74,17 @@ class SparepartController extends Controller
      */
     public function update(Request $request, Sparepart $sparepart)
     {
-        $request->validate([
-
-            'code' => 'required|unique:spareparts,code,' . $sparepart->id,
-            'name' => 'required',
-            'stock' => 'required',
-            'purchase_price' => 'required',
-            'selling_price' => 'required'
-
+        $validated = $request->validate([
+            'code' => 'required|max:50',
+            'name' => 'required|max:100',
+            'stock' => 'required|integer|min:0',
+            'selling_price' => 'required|numeric|min:0',
         ]);
 
-        $sparepart->update($request->all());
+        $sparepart->update($validated);
 
-        return redirect()
-            ->route('spareparts.index')
-            ->with('success', 'Data berhasil diubah');
+        return redirect()->route('spareparts.index')
+            ->with('success', 'Data sparepart berhasil diupdate.');
     }
 
     /**

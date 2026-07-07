@@ -1,34 +1,107 @@
 @extends('layouts.app')
+
 @section('content')
-<a href="{{ route('spareparts.edit',$item) }}"
-    class="btn btn-warning btn-sm">
-    Edit
-</a>
 
+<h1 class="mb-4">Edit Sparepart</h1>
 
-<form action="{{ route('spareparts.update',$sparepart) }}" method="POST">
+<div class="row">
+    <div class="col-md-7">
 
-    @csrf
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                Form Edit Sparepart
+            </div>
 
-    @method('PUT')
+            <div class="card-body">
 
-    <input
-        type="text"
-        name="code"
-        value="{{ old('code',$sparepart->code) }}">
+                <form action="{{ route('spareparts.update', $sparepart) }}" method="POST">
+                    @csrf
+                    @method('PUT')
 
-    <input
-        type="text"
-        name="name"
-        value="{{ old('name',$sparepart->name) }}">
+                    {{-- Kode Sparepart --}}
+                    <div class="mb-3">
+                        <label class="form-label">Kode Sparepart</label>
+                        <input
+                            type="text"
+                            name="code"
+                            class="form-control @error('code') is-invalid @enderror"
+                            value="{{ old('code', $sparepart->code) }}"
+                            placeholder="Masukkan kode sparepart">
 
-    <button class="btn btn-warning">
+                        @error('code')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
 
-        Update
+                    {{-- Nama Sparepart --}}
+                    <div class="mb-3">
+                        <label class="form-label">Nama Sparepart</label>
+                        <input
+                            type="text"
+                            name="name"
+                            class="form-control @error('name') is-invalid @enderror"
+                            value="{{ old('name', $sparepart->name) }}"
+                            placeholder="Masukkan nama sparepart">
 
-    </button>
+                        @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
 
+                    {{-- Stok --}}
+                    <div class="mb-3">
+                        <label class="form-label">Stok</label>
+                        <input
+                            type="number"
+                            name="stock"
+                            class="form-control @error('stock') is-invalid @enderror"
+                            value="{{ old('stock', $sparepart->stock) }}"
+                            placeholder="Masukkan jumlah stok">
 
-</form>
+                        @error('stock')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    {{-- Harga Jual --}}
+                    <div class="mb-3">
+                        <label class="form-label">Harga Jual</label>
+                        <input
+                            type="number"
+                            name="selling_price"
+                            class="form-control @error('selling_price') is-invalid @enderror"
+                            value="{{ old('selling_price', number_format($sparepart->selling_price, 0, '', '')) }}"
+                            placeholder="Masukkan harga jual">
+
+                        @error('selling_price')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-warning text-white">
+                            Update
+                        </button>
+
+                        <a href="{{ route('spareparts.index') }}" class="btn btn-secondary">
+                            Kembali
+                        </a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
 
 @endsection

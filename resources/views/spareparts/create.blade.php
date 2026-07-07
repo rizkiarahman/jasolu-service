@@ -1,44 +1,100 @@
-<h2>Tambah Sparepart</h2>
+@extends('layouts.app')
 
-<form action="{{ route('spareparts.store') }}" method="POST">
+@section('content')
 
-    @csrf
+<h1 class="mb-4">Tambah Sparepart</h1>
 
-    <input
-        type="text"
-        name="code"
-        placeholder="Kode">
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        Form Tambah Sparepart
+    </div>
 
-    <br><br>
+    <div class="card-body">
 
-    <input
-        type="text"
-        name="name"
-        placeholder="Nama">
+        <form action="{{ route('spareparts.store') }}" method="POST">
+            @csrf
 
-    <br><br>
+            {{-- Kode Sparepart --}}
+            <div class="mb-3">
+                <label class="form-label">Kode Sparepart</label>
+                <input
+                    type="text"
+                    name="code"
+                    class="form-control @error('code') is-invalid @enderror"
+                    value="{{ old('code') }}"
+                    placeholder="Masukkan kode sparepart">
 
-    <input
-        type="number"
-        name="stock"
-        placeholder="Stock">
+                @error('code')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
 
-    <br><br>
+            {{-- Nama Sparepart --}}
+            <div class="mb-3">
+                <label class="form-label">Nama Sparepart</label>
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control @error('name') is-invalid @enderror"
+                    value="{{ old('name') }}"
+                    placeholder="Masukkan nama sparepart">
 
-    <input
-        type="number"
-        name="purchase_price"
-        placeholder="Harga Beli">
+                @error('name')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
 
-    <br><br>
+            {{-- Stok --}}
+            <div class="mb-3">
+                <label class="form-label">Stok</label>
+                <input
+                    type="number"
+                    name="stock"
+                    class="form-control @error('stock') is-invalid @enderror"
+                    value="{{ old('stock') }}"
+                    placeholder="Masukkan jumlah stok">
 
-    <input
-        type="number"
-        name="selling_price"
-        placeholder="Harga Jual">
+                @error('stock')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
 
-    <br><br>
+            {{-- Harga Jual --}}
+            <div class="mb-3">
+                <label class="form-label">Harga Jual</label>
+                <input
+                    type="number"
+                    name="selling_price"
+                    class="form-control @error('selling_price') is-invalid @enderror"
+                    value="{{ old('selling_price') }}"
+                    placeholder="Masukkan harga jual">
 
-    <button>Simpan</button>
+                @error('selling_price')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
 
-</form>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    Simpan
+                </button>
+
+                <a href="{{ route('spareparts.index') }}" class="btn btn-secondary">
+                    Kembali
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+@endsection
