@@ -16,14 +16,25 @@
                 Jasolu Service
             </a>
             <div>
-                <a class="nav-link text-white d-inline"
-                    href="{{ route('spareparts.index') }}">
-                    Sparepart
-                </a>
-                <a class="nav-link text-white d-inline"
-                    href="{{ route('customers.index') }}">
-                    Customer
-                </a>
+                <ul class="navbar-nav flex-row gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('spareparts.index') }}">
+                            Suku Cadang / Onderdil
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('customers.index') }}">
+                            Pelanggan
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('vehicles.index') }}">
+                            Kendaraan
+                        </a>
+                    </li>
+                </ul>
 
             </div>
 

@@ -12,9 +12,6 @@ class Vehicle extends Model
         'brand',
         'model',
         'year',
-        'engine_number',
-        'frame_number',
-        'mileage'
     ];
 
     public function customer()

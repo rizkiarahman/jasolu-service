@@ -13,14 +13,6 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')
-                ->constrained()
-                ->cascadeOnDelete();
-
-            $table->string('plate_number')->unique();
-            $table->string('brand');
-            $table->string('model');
-            $table->year('year')->nullable();
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="mb-4">Daftar Customer</h1>
+<h1 class="mb-4">Daftar Nama Pelanggan</h1>
 <a href="{{ route('customers.create') }}" class="btn btn-primary btn-sm mb-1">
     Tambah Data
 </a>
@@ -14,7 +14,7 @@
                     type="text"
                     name="keyword"
                     class="form-control"
-                    placeholder="Cari Nama Customers..."
+                    placeholder="Cari Nama Pelanggan..."
                     value="{{ request('keyword') }}">
 
                 <button class="btn btn-success" type="submit">
