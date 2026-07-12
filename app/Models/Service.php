@@ -10,10 +10,6 @@ class Service extends Model
         'vehicle_id',
         'service_date',
         'complaint',
-        'diagnosis',
-        'service_cost',
-        'sparepart_cost',
-        'total_cost',
         'status'
     ];
 

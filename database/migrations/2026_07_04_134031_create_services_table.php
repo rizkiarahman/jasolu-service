@@ -13,27 +13,18 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('vehicle_id')
-                  ->constrained()
-                  ->cascadeOnDelete();
+                ->constrained()
+                ->cascadeOnDelete();
 
             $table->date('service_date');
 
             $table->text('complaint');
 
-            $table->text('diagnosis')->nullable();
-
-            $table->decimal('service_cost',12,2)->default(0);
-
-            $table->decimal('sparepart_cost',12,2)->default(0);
-
-            $table->decimal('total_cost',12,2)->default(0);
-
-            $table->enum('status',[
-                'Waiting',
-                'In Progress',
-                'Completed',
-                'Cancelled'
-            ])->default('Waiting');
+            $table->enum('status', [
+                'Menunggu',
+                'Diproses',
+                'Selesai'
+            ])->default('Menunggu');
 
             $table->timestamps();
         });
@@ -41,6 +32,16 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::table('services', function (Blueprint $table) {
+
+            $table->dropForeign(['vehicle_id']);
+
+            $table->dropColumn([
+                'vehicle_id',
+                'service_date',
+                'complaint',
+                'status'
+            ]);
+        });
     }
 };
