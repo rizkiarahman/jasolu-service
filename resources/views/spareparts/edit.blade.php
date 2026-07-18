@@ -52,6 +52,22 @@
                         @enderror
                     </div>
 
+                    {{-- Merk --}}
+                    <div class="mb-3">
+                        <label class="form-label">Merk / Brand (Opsional)</label>
+                        <input
+                            type="text"
+                            name="brand"
+                            class="form-control @error('brand') is-invalid @enderror"
+                            value="{{ old('brand', $sparepart->brand) }}"
+                            placeholder="Contoh: Honda, Federal, Yamaha">
+                        @error('brand')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
                     {{-- Stok --}}
                     <div class="mb-3">
                         <label class="form-label">Stok</label>
@@ -69,6 +85,23 @@
                         @enderror
                     </div>
 
+                    {{-- Harga Beli --}}
+                    <div class="mb-3">
+                        <label class="form-label">Harga Beli</label>
+                        <input
+                            type="number"
+                            name="purchase_price"
+                            class="form-control @error('purchase_price') is-invalid @enderror"
+                            value="{{ old('purchase_price', number_format($sparepart->purchase_price, 0, '', '')) }}"
+                            placeholder="Masukkan harga beli">
+
+                        @error('purchase_price')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
                     {{-- Harga Jual --}}
                     <div class="mb-3">
                         <label class="form-label">Harga Jual</label>
@@ -80,6 +113,23 @@
                             placeholder="Masukkan harga jual">
 
                         @error('selling_price')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+                    {{-- Satuan --}}
+                    <div class="mb-3">
+                        <label class="form-label">Satuan</label>
+                        <input
+                            type="text"
+                            name="unit"
+                            class="form-control @error('unit') is-invalid @enderror"
+                            value="{{ old('unit', $sparepart->unit) }}"
+                            placeholder="Contoh: pcs, set, botol">
+
+                        @error('unit')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

@@ -11,7 +11,7 @@
                     <h5 class="mb-0 fw-bold">
                         <i class="bi bi-robot me-2"></i> Jasolu AI Assistant
                     </h5>
-                    <span class="badge bg-light text-primary py-2 px-3">Gemini 1.5 Flash</span>
+                    <span class="badge bg-light text-primary py-2 px-3">Gemini 3.5 Flash</span>
                 </div>
 
                 <!-- Chat Area -->

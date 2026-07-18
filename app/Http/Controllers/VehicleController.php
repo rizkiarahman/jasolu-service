@@ -66,7 +66,9 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        $customers = Customer::orderBy('name')->get();
+
+        return view('vehicles.edit', compact('vehicle', 'customers'));
     }
 
     /**
@@ -74,7 +76,19 @@ class VehicleController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        $request->validate([
+            'customer_id' => 'required',
+            'plate_number' => 'required|unique:vehicles,plate_number,' . $vehicle->id,
+            'brand' => 'required',
+            'model' => 'required',
+            'year' => 'required'
+        ]);
+
+        $vehicle->update($request->all());
+
+        return redirect()
+            ->route('vehicles.index')
+            ->with('success', 'Data kendaraan berhasil diperbarui');
     }
 
     /**
@@ -82,6 +96,10 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+
+        return redirect()
+            ->route('vehicles.index')
+            ->with('success', 'Data kendaraan berhasil dihapus');
     }
 }

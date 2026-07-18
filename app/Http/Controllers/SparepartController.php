@@ -39,18 +39,18 @@ class SparepartController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-
             'code' => 'required|unique:spareparts',
             'name' => 'required',
-            'stock' => 'required|integer',
-            'purchase_price' => 'required|numeric',
-            'selling_price' => 'required|numeric',
-
+            'brand' => 'nullable|string|max:100',
+            'stock' => 'required|integer|min:0',
+            'purchase_price' => 'required|numeric|min:0',
+            'selling_price' => 'required|numeric|min:0',
+            'unit' => 'nullable|string|max:50',
         ]);
 
         Sparepart::create($request->all());
         return redirect()->route('spareparts.index')
-            ->with('success', 'Data berhasil ditambahkan');;
+            ->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -75,10 +75,13 @@ class SparepartController extends Controller
     public function update(Request $request, Sparepart $sparepart)
     {
         $validated = $request->validate([
-            'code' => 'required|max:50',
+            'code' => 'required|max:50|unique:spareparts,code,' . $sparepart->id,
             'name' => 'required|max:100',
+            'brand' => 'nullable|string|max:100',
             'stock' => 'required|integer|min:0',
+            'purchase_price' => 'required|numeric|min:0',
             'selling_price' => 'required|numeric|min:0',
+            'unit' => 'nullable|string|max:50',
         ]);
 
         $sparepart->update($validated);
