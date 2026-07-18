@@ -146,6 +146,80 @@
             </a>
         </div>
 
+        {{-- AI Assistant --}}
+        <div class="col-md-3">
+            <a href="{{ route('ai.index') }}"
+                class="text-decoration-none">
+                <div class="card shadow border-0 bg-dark text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <small class="text-white-50">
+                                    Tanya AI Assistant
+                                </small>
+                                <h2 class="fw-bold text-warning">
+                                    Asisten AI
+                                </h2>
+                            </div>
+                            <div class="fs-1">
+                                🤖
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @if(strtolower(Auth::user()->role) == 'admin')
+        {{-- Kelola User --}}
+        <div class="col-md-3">
+            <a href="{{ route('users.index') }}"
+                class="text-decoration-none">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <small class="text-muted">
+                                    Kelola Akun Staff
+                                </small>
+                                <h2 class="fw-bold">
+                                    {{ $totalUsers }}
+                                </h2>
+                            </div>
+                            <div class="fs-1">
+                                👥
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        {{-- Laporan --}}
+        <div class="col-md-3">
+            <a href="{{ route('reports.index') }}"
+                class="text-decoration-none">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <small class="text-muted">
+                                    Laporan Keuangan
+                                </small>
+                                <h2 class="fw-bold">
+                                    Rekap
+                                </h2>
+                            </div>
+                            <div class="fs-1">
+                                📈
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endif
+
     </div>
 
 </div>
