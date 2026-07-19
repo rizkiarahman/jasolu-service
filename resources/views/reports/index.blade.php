@@ -17,10 +17,10 @@
             </p>
         </div>
 
-        <button class="btn btn-success" disabled>
+        <a href="{{ route('reports.index', array_merge(request()->all(), ['export' => 'excel'])) }}" class="btn btn-success">
             <i class="bi bi-file-earmark-excel"></i>
             Export Excel
-        </button>
+        </a>
 
     </div>
 

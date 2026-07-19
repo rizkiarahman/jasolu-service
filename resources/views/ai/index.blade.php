@@ -8,8 +8,8 @@
             <div class="card shadow-sm border-0" style="height: 80vh; display: flex; flex-direction: column;">
                 <!-- Header -->
                 <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between py-3">
-                    <h5 class="mb-0 fw-bold">
-                        <i class="bi bi-robot me-2"></i> Jasolu AI Assistant
+                    <h5 class="mb-0 fw-bold flex items-center gap-1">
+                        <i class="bi bi-robot me-2"></i> <span class="bg-gradient-to-r from-amber-300 to-yellow-200 bg-clip-text text-transparent font-black tracking-wide filter drop-shadow-[0_0_8px_rgba(251,191,36,0.2)]">Jasolu AI</span> Assistant
                     </h5>
                     <span class="badge bg-light text-primary py-2 px-3">Gemini 3.5 Flash</span>
                 </div>
@@ -22,8 +22,10 @@
                             <i class="bi bi-robot fs-5"></i>
                         </div>
                         <div class="message-content bg-white p-3 rounded shadow-sm" style="max-width: 80%;">
-                            <p class="mb-1 fw-bold text-primary">Jasolu AI</p>
-                            <p class="mb-0">Halo! Saya adalah Asisten AI bengkel **Jasolu Service**. Saya bisa membantu Anda memeriksa **stok suku cadang (harga & ketersediaan)** dan **antrean service hari ini** secara cepat.</p>
+                            <p class="mb-1 font-black bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Jasolu AI</p>
+                            <p class="mb-0 text-slate-600 leading-relaxed">
+                                Halo! Saya adalah Asisten AI bengkel <span class="font-extrabold text-indigo-600">Jasolu Service</span>. Saya bisa membantu Anda memeriksa <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200">stok suku cadang (harga & ketersediaan)</span> dan <span class="font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-lg border border-rose-200">antrean service hari ini</span> secara cepat.
+                            </p>
                             
                             <hr class="my-2">
                             <p class="mb-2 text-muted small"><i class="bi bi-lightbulb"></i> Coba tanyakan hal seperti ini:</p>
@@ -164,7 +166,7 @@
                         <i class="bi bi-robot fs-5"></i>
                     </div>
                     <div class="message-content bg-white p-3 rounded shadow-sm" style="max-width: 80%;">
-                        <p class="mb-1 fw-bold text-primary">Jasolu AI</p>
+                        <p class="mb-1 font-black bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Jasolu AI</p>
                         <div class="mb-0">${formattedText}</div>
                     </div>
                 </div>
@@ -181,7 +183,7 @@
                         <i class="bi bi-robot fs-5"></i>
                     </div>
                     <div class="message-content bg-white p-3 rounded shadow-sm" style="max-width: 80%;">
-                        <p class="mb-1 fw-bold text-primary">Jasolu AI</p>
+                        <p class="mb-1 font-black bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Jasolu AI</p>
                         <div class="d-flex align-items-center gap-2 text-muted">
                             <div class="spinner-grow spinner-grow-sm" role="status"></div>
                             <span>Berpikir...</span>

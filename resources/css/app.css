@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix Bootstrap collapse conflict with Tailwind */
+.navbar-collapse {
+    visibility: visible !important;
+}
+
 .card{
     border-radius:15px;
 }
